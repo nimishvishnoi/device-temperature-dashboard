@@ -1,3 +1,47 @@
+Library Used: 
+
+1. axios
+2. echarts
+3. lodash
+
+Data Dashboard
+
+Data is the new oil. But like oil, it needs to be refined through process and filters to get the actionable resource. Zenatix’s IOT stack captures thousands of data points via sensors. Conversion of these raw data points to meaningful insights requires a step-by-step process to finally create a visualization that can be understood easily. 
+
+Problem statement :
+
+Create a dashboard with the following features 
+Create filter/aggregation configuration over the sample data to create different datasets
+Create widgets/charts with the configured datasets
+Rearrange the layout of the widgets in the dashboard screen
+Poll data from the sample data at 100 rows every 10 seconds
+
+Bonus
+Provide alerting threshold configuration.The widget/dashboard throws an alert if a given threshold is crossed.
+
+The configuration for these datasets and charts should be editable by the user. 
+
+Base dashboard widgets :
+Hourly average temperature of the area
+Temperature average per device_display_name
+Pseudo live stream of temperature for each device_display_name ( use the data polling feature here )
+Table representing all devices with device_type
+
+Tech specification:
+Develop this application using ReactJS.
+Charting libraries can be echarts,bizcharts, plotly,etc.
+You can use lodash, lambdaJS, antd/dataset to wrangle/filter/aggregate data.
+Bonus 
+Brownie points if you can make this system generic for any sample data
+Or
+Host your application on Heroku or any other hosting platform
+
+Assignment requirements : working app with decent aesthetics , source code with references to libraries used
+
+Time Limit - 1 Week (7 days)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
