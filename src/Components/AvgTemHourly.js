@@ -14,7 +14,7 @@ function AvgTemHourly(props) {
  
                 {
                     avgtemp.map((val) =>
-                        <Tab eventKey={val[0].timeinhrs} title={val[0].timeinhrs +'-'+ (val[0].timeinhrs + 1)}>
+                        <Tab key={val[0].timeinhrs} eventKey={val[0].timeinhrs} title={val[0].timeinhrs +'-'+ (val[0].timeinhrs + 1)}>
                             <div className='row'>
                                 {val.map((avg) =>
                                     <div className='col-6' key={avg.device_name}>
