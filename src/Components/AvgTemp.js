@@ -1,12 +1,22 @@
 import React from 'react';
+import StatsCard from './StatsCard/StatsCard';
 
 function AvgTemp(props) {
+    const color = props.heading === 'Avg Temp per display' ? '1px solid red' : '1px solid green';
     return (
-        <div style={{borderStyle:'solid'}}>
-            <h3 style={{textAlign: 'center'}}>{props.heading}</h3>
-            <ul style={{listStyleType:'none'}}>{props.avgtemp.map((val) =>
-                <li key={val.device_name}><b>{val.device_name}</b> {val.mean_reading}</li>
-            )}</ul>
+        <div>
+            <h3>{props.heading}</h3>
+            <div className='row'>
+                {props.avgtemp.map((val) =>
+                    <div className='col-6' key={val.device_name}>
+                        <StatsCard
+                            color={color}
+                            statsText={val.device_name}
+                            statsValue={val.mean_reading}
+                        />
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

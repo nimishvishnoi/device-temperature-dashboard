@@ -15,7 +15,7 @@ function EchartsPlot(props) {
             <ReactEcharts notMerge={true} 
                 option={{
                     title: {
-                        text: 'Chart'
+                        text: ''
                     },
                     tooltip : {
                         trigger: 'axis'
