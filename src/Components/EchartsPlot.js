@@ -46,13 +46,13 @@ function EchartsPlot(props) {
                         {
                             type: 'slider',
                             show: true,
-                            start: 94,
+                            start: 97,
                             end: 100,
                             handleSize: 8
                         },
                         {
                             type: 'inside',
-                            start: 94,
+                            start: 97,
                             end: 100
                         },
                         {

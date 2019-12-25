@@ -7,7 +7,7 @@ import CurrentTemprature from './Components/CurrentTemprature';
 import AvgTemp from './Components/AvgTemp';
 import DeviceTable from './Components/DeviceTable';
 import AvgTemHourly from './Components/AvgTemHourly';
-import { Form, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function Dashboard() {
     const [data, setData] = useState([]);
@@ -59,35 +59,39 @@ function Dashboard() {
             <Container>
                 <Row>
                     <Col>
-                        <Form className='form-inline'>
-                            <Form.Group>
-                                <Form.Label>Filters for Chart : </Form.Label>
-                                <SelectOptions onselectChange={onTypeChange} value={type} select='Type' options={_.uniq(_.map(data, 'device_type'))} />
-                                <SelectOptions onselectChange={onDeviceChange} value={device} select='Device' options={_.uniq(_.map(newdata, 'device_display_name'))} />
-                            </Form.Group>
-                        </Form>
+                        <div className="card shadow mb-5 rounded text-white bg-dark">
+                            <div className="card-header">
+                                <h6>Temp - Time plot for all devices</h6>
+                            </div>
+                            <div className="card-body bg-white">
+                                <Row>
+                                    <Col md={3}></Col>
+                                    <Col md={3}>
+                                        <SelectOptions onselectChange={onTypeChange} value={type} select='Type' options={_.uniq(_.map(data, 'device_type'))} />
+                                    </Col>
+                                    <Col md={3}>
+                                        <SelectOptions onselectChange={onDeviceChange} value={device} select='Device' options={_.uniq(_.map(newdata, 'device_display_name'))} />
+                                    </Col>
+                                </Row>
+                                <br />
+                                <EchartsPlot data={_.sortBy(newdata, dtime => { return new Date(dtime.time) })} />
+                            </div>
+                        </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <EchartsPlot data={_.sortBy(newdata, dtime => { return new Date(dtime.time) })} />
-                    </Col>
-                </Row>
-                
-                <Row>
-                    <Col lg={6} sm={6}>
+                    <Col lg={9} sm={9}>
                         <AvgTemHourly data={data} />
                     </Col>
-                    <Col lg={6} sm={6}>
-                        <DeviceTable devices={_.uniqBy(data, v => [v.device_display_name, v.device_type].join())} />
+                    <Col lg={3} sm={3}>
+                        <AvgTemp heading='Avg Temp per display' avgtemp={_.map(_.groupBy(data, 'device_display_name'), v => { return { device_name: v[0].device_display_name, mean_reading: _.meanBy(v, p => p.reading) } })} />
                     </Col>
                 </Row>
                 <Row>
-                    <Col lg={6} sm={6}>
-                        <AvgTemp heading='Avg Temp per display' avgtemp={_.map(_.groupBy(data, 'device_display_name'), v => { return { device_name: v[0].device_display_name, mean_reading: _.meanBy(v, p => p.reading) } })} />
+                    <Col lg={9} sm={9}>
+                        <DeviceTable devices={_.uniqBy(data, v => [v.device_display_name, v.device_type].join())} />
                     </Col>
-
-                    <Col lg={6} sm={6}>
+                    <Col lg={3} sm={3}>
                         <CurrentTemprature data={data} />
                     </Col>
                 </Row>

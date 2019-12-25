@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="wrapper">
         <Header />
+        <br/>
         <Dashboard />
     </div>
   );
