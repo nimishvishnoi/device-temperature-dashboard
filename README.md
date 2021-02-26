@@ -7,7 +7,7 @@ Library Used:
 
 Data Dashboard
 
-Data is the new oil. But like oil, it needs to be refined through process and filters to get the actionable resource. Zenatix’s IOT stack captures thousands of data points via sensors. Conversion of these raw data points to meaningful insights requires a step-by-step process to finally create a visualization that can be understood easily. 
+Data is the new oil. But like oil, it needs to be refined through process and filters to get the actionable resource. Device Temperature Dashboard IOT stack captures thousands of data points via sensors. Conversion of these raw data points to meaningful insights requires a step-by-step process to finally create a visualization that can be understood easily. 
 
 Problem statement :
 

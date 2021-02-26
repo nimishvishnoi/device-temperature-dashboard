@@ -5,7 +5,7 @@ import {Navbar} from 'react-bootstrap';
 function Header() {
     return(
         <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#">Zenatix Assignment</Navbar.Brand>
+        <Navbar.Brand href="#">Device Temperature Dashboard</Navbar.Brand>
       </Navbar>
     )
 }

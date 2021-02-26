@@ -1,5 +1,5 @@
 {
-  "name": "zenatix-assignment",
+  "name": "device-temperature-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
